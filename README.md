@@ -1,4 +1,4 @@
-# QA Pipeline - Execução via Bash
+# QA Pipeline
 
 Este projeto roda uma pipeline de inferência QA em dados `.parquet`, exportando o resultado final para CSV e usando o modelo local `mistral:latest` via Ollama.
 - O `parquet` utilizado estará incluso em `./input/` e nenhum download é necessário
