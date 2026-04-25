@@ -53,6 +53,8 @@ Write-Host "[setup] Verificando instalação do Ollama CLI..."
 if (-not (Get-Command ollama -ErrorAction SilentlyContinue)) {
     Write-Host "[erro] Ollama não está instalado no sistema."
     Write-Host "[dica] Instale em: https://ollama.com/download"
+    Write-Host "[dica] Caso tenha instalado anteriormente, certifique-se que o Ollama foi adicionado ao PATH"
+    Write-Host "[dica] Após instalar, execute este script novamente para concluir o setup e baixar o modelo $OLLAMA_MODEL."
     exit 1
 }
 

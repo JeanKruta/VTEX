@@ -11,6 +11,8 @@ Antes de executar, garanta que seu sistema tenha:
 - `venv` (normalmente vem com Python)
 - [Ollama](https://ollama.com/download) instalado
 - Serviço do Ollama em execução (`ollama serve`, caso necessário)
+- No Windows, verifique se o Ollama foi adicionado ao path
+- Em caso de execução do setup antes da instalação do Ollama, o erro: "[erro] Ollama não está instalado no sistema." será mostrado. Instale, certifique-se que o Ollama consta no PATH e execute o `setup` novamente para terminar a instalação do modelo.
 
 ## 2) Setup automático
 
