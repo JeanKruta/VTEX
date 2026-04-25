@@ -14,7 +14,7 @@ Antes de executar, garanta que seu sistema tenha:
 
 ## 2) Setup automático
 
-Foi criado o script `setup.sh`, que faz automaticamente:
+Foram criados os scripts `setup.sh` (Linux/macOS) e `setup.ps1` (Windows), que fazem automaticamente:
 
 1. Criação de ambiente virtual em `.venv`
 2. Ativação do ambiente virtual
@@ -23,18 +23,33 @@ Foi criado o script `setup.sh`, que faz automaticamente:
 5. Verificação do Ollama
 6. Download do modelo `mistral:latest`
 
-### Comando
+### Comando (Linux/macOS)
 
 ```bash
 ./setup.sh
+```
+
+### Comando (Windows / PowerShell)
+
+```powershell
+.\setup.ps1
 ```
 
 ## 3) Executar o pipeline
 
 Após setup concluído. Da raíz do projeto:
 
+### Linux/macOS
+
 ```bash
 source .venv/bin/activate
+python main.py
+```
+
+### Windows / PowerShell
+
+```powershell
+.\.venv\Scripts\Activate.ps1
 python main.py
 ```
 
@@ -47,15 +62,23 @@ Ao final do `run()`, os arquivos temporários são limpos pelo próprio fluxo.
 
 ## 5) Execução em um único comando
 
-Se quiser fazer setup + execução diretamente:
+Se quiser fazer setup + execução diretamente.
+
+### Linux/macOS
 
 ```bash
 ./setup.sh && source .venv/bin/activate && python main.py
 ```
 
+### Windows / PowerShell
+
+```powershell
+.\setup.ps1; .\.venv\Scripts\Activate.ps1; python main.py
+```
+
 ## 6) Solução de problemas
 
-- **`python3: command not found`**
+- **`python3: command not found` / `python: command not found`**
   - Instale Python 3 no sistema.
 - **`Ollama não está instalado`**
   - Instale com:
@@ -67,11 +90,16 @@ Se quiser fazer setup + execução diretamente:
     ```bash
     ollama serve
     ```
-  - Em outro terminal, rode novamente `./setup.sh`.
+  - Em outro terminal, rode novamente `./setup.sh` ou `.\setup.ps1`.
 - **Erro ao baixar modelo**
   - Verifique conexão de internet e tente:
     ```bash
     ollama pull mistral:latest
+    ```
+- **Windows bloqueia execução de script PowerShell**
+  - Rode uma vez no PowerShell (usuário atual):
+    ```powershell
+    Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
     ```
 
 ## 7) Estrutura de execução (resumo)
