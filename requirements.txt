@@ -1,0 +1,7 @@
+pandas
+tqdm
+scikit-learn
+numpy
+fastparquet
+ollama
+httpx
